@@ -3,13 +3,8 @@
   "width": 400, "height": 300,
   "title": "Unemployment Rate for different countries",
   "data": {"url": "https://raw.githubusercontent.com/riaraghani/visualisation02/main/data/unemployment_by_country.csv"},
-  "mark": "area",
-  "params": [{
-    "name": "country",
-    "select": {"type": "point", "fields": ["Country"]},
-    "bind": "legend"
-  }], "transform": [{"filter": {"field": "Country", "oneOf": ["Switzerland","Netherlands","Australia","Germany","United States of America","United Kingdom","Canada","Singapore","Russian Federation","Japan","United Arab Emirates","Iceland"]}}],
-  "encoding": {
+  
+  "layer":[{"mark": "area","encoding": {
     "x": {
       "timeUnit": "year", "field": "Year","title":"Year",
       "axis": {"domain": false, "format": "%Y", "tickSize": 4,"grid": false}
@@ -28,5 +23,9 @@
     },
     "tooltip":[{"field": "Continent", "type": "nominal", "title": "Continent"},{"field": "Year", "type": "ordinal", "title": "Year","timeUnit": "year"},
       {"field": "Unemployment Rate", "type": "quantitative","aggregate":"sum"}]
-  }
+  },"params": [{
+    "name": "country",
+    "select": {"type": "point", "fields": ["Country"]},
+    "bind": "legend"
+  }], "transform": [{"filter": {"field": "Country", "oneOf": ["Switzerland","Netherlands","Australia","Germany","United States of America","United Kingdom","Canada","Singapore","Russian Federation","Japan","United Arab Emirates","Iceland"]}}]},{"mark":{"type":"text","dx":-29,"dy":-135},"encoding": {"text":{"value":"<----   The effect of 2008 recession"}}}, {"mark":{"type":"text","dx":75,"dy":-90},"encoding": {"text":{"value":"The effect of COVID-19 pandemic  --->"}}}]
 }
