@@ -3,15 +3,10 @@
   "title": "Happiness Index Ranks",
   "width":400,
   "height":300,
-  "params": [{
-    "name": "country",
-    "select": {"type": "point", "fields": ["Country"]},
-    "bind": "legend"
-  }],
   "data": {
     "url":"https://raw.githubusercontent.com/riaraghani/visualisation02/main/data/happiness_index.csv"
   },
-  "mark": {"type": "line", "point": true},
+  "layer":[{"mark": {"type": "line", "point": true},
   "encoding": {
     "x": {"field": "Year", "type": "ordinal","title":"Year"},
     "y": {"field": "Rank", "type": "quantitative","title":"Happiness Index Rank","axis":{"tickCount":10}},
@@ -29,6 +24,11 @@
       "condition": {"param": "country", "value": 1},
       "value": 0.1
     }
-  },
+  }, "params": [{
+    "name": "country",
+    "select": {"type": "point", "fields": ["Country"]},
+    "bind": "legend"
+  }]},
+  {"mark":{"type": "text","dx":180,"dy":135},"encoding": {"text":{"value":"Finland continues to be the happiest country for 4th consecutive year"}}}],
   "transform": [{"filter": "datum.Rank < 11"}]
 }
