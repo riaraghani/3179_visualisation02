@@ -3,15 +3,10 @@
   "width": 400,
   "height": 300,
   "title": "Life Expectancy and Health Care Index",
-  "params": [{
-    "name": "continent",
-    "select": {"type": "point", "fields": ["Continent"]},
-    "bind": "legend"
-  }],
   "data": {
   "url": "https://raw.githubusercontent.com/riaraghani/visualisation02/main/data/life_expectancy_health_index_by_country_continent.csv"
   },
-  "mark": "circle",
+  "layer":[{"mark": "circle",
   "encoding": {
   "x": {
   "field": "Health Care Index",
@@ -28,7 +23,7 @@
   },
   "color": {
   "field": "Continent",
-  "type": "nominal"
+  "type": "nominal","scale":{"domain":["North America", "South America","Asia","Africa","Europe","Oceania"],"range":["#7f95ff","#23a856","#db8cc1","#dbce3d","#2669bf","#a3242b"]}
   },
   "opacity": {
       "condition": {"param": "continent", "value": 0.7},
@@ -40,7 +35,7 @@
   "scale": {
   "type": "threshold",
   "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
-  "range": [20, 60, 170, 230, 350, 500]
+  "range": [50,100,200,300,400,500]
   },
   "legend": {"format": ".1s"}
   },
@@ -51,5 +46,10 @@
       {"field": "Health Care Index", "type": "quantitative"},
       {"field": "Population", "type": "quantitative"}
       ]
-  }
+  },"params": [{
+    "name": "continent",
+    "select": {"type": "point", "fields": ["Continent"]},
+    "bind": "legend"
+  }]},{"mark":{"type": "text","dx":30,"dy":107},"encoding": {"text":{"value":"<--- Nigeria has the lowest life expectancy"}}},{"mark":{"type": "text","dx":-65,"dy":-90},"encoding": {"text":{"value":"Malta has the lowest health care index"}}}]
+  
   }
