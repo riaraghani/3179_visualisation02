@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    .center {
+        margin: auto;
+        width: 75%;
+        padding: 10px;
+    }
+
+    body {
+        background: #b5feff;
+
+    }
+
+    html {
+        margin: 20px
+    }
+
+    .verticalLine {
+        border-left: solid #000000;
+    }
+    .verticalLineRight {
+        border-right: solid #000000;
+    }
+</style>
+<div class="center">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css"
+            integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+        <script src="vegalite.js"></script>
+        <title>Data Visualisation 2</title>
+    </head>
+
+    <body>
+        <div class="everything">
+            <center>
+                <h1 style="font-family:'Times New Roman', Times, serif;">Living around the world</h1>
+            </center>
+            <center>
+                <h2 style="font-family:'Times New Roman', Times, serif;">An overview of what it is like to live in different parts of the world</h2>
+            </center>
+            <!-- <img src="opt2.jpeg" alt="Me" width="1500" height="700"> -->
+            <center>
+                <p>Today, more people than ever live in a country other than the one in which they were born. According
+                    to the IOM World Migration Report 2020, as of June 2019 the number of international migrants was
+                    estimated to be almost 272 million globally.
+                    With this continuous increase, it is important to explore and understand what it is like to live in
+                    different parts of the world. This webpage explores the different parameters one must consider when
+                    deciding to migrate to another country.</p>
+            </center>
+
+            <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+            <br>
+            <div class="verticalLine" style="padding-left: 20px">
+                
+                <h2>Quality of Life </h2>
+                Quality of Life refers to the level of wealth, comfort, necessities, physical and mental health and
+                wellness, and material goods available to a particular geographic area.
+                <br>As we move the year slider, we can see how the quality of life index increases showing a significant
+                rise in the standard of living across various countries.
+
+            </div>
+
+            <br>
+            <!-- Visualisation 1 -->
+            <br>
+            <center>
+                <div id="map">
+            </center>
+        </div>
+        <!-- Visualisation 2 -->
+        <br><br>
+        <div style="clear: left;">
+            <p style="float: left;">
+            <div id="bubble" style="float:left;"></div>
+            
+            </p>
+        </div>
+        <br>
+        <div class="verticalLineRight" style="padding-right: 20px">
+        <h2>
+            Health Care Index
+        </h2>
+        <p>Health Care Index is a statistical analysis of the overall quality of the health care system, including
+            health care infrastructure; health care professionals (doctors, nursing staff, and other health workers)
+            competencies; cost; quality medicine availability, and government readiness. It is
+            expected that for countries with higher health care index will have a higher life expectancy. This trend
+            is
+            seen in the bubble chart that compares the health care index for various countries in different
+            continents,
+            with the average life expectancy for that country. <span style="font-size: large;font-weight: bold;">Japan, South Korea, Taiwan</span> are the top 3 countries
+            with
+            highest health care index.</div></p style="float:right;"><br><br><br>
+        <br><br>
+        <!-- Visualisation 3 -->
+        <!-- <p> -->
+        <div style="clear: right;">
+            <p style="float: right;">
+            <div id="radial" style="float:right;position:relative; left:40px;"></div>
+            </p>
+        </div>
+        <br>
+        <div style="padding-left: 20px" class="verticalLine" >
+            <h2>Is world becoming more or less safe?</h2>
+        
+        The radial chart shows the safety index for some of the most developed (and presumed to be
+        “safe”)
+        countries. Qatar and UAE have the highest safety index among other countries. On the other hand, countries
+        like
+        <span style="font-weight: bold; color: #7bb5ae;">Australia</span>, <span style="font-weight: bold; color: #330ea1;">United Kingdom</span> and <span style="font-weight: bold; color:#142a69;">United Staes of America</span> (that usually have more migrations) are comparatively
+        less
+        safe.
+        There are some commonalities among the safest countries in the world. For instance, safe countries tend to
+        display
+        high
+        levels of wealth, social welfare, effective
+        criminal
+        justice
+        systems, and education.</p style="float:left;">
+        </div>
+        <!-- </p> -->
+        <!-- Visualisation 4 -->
+        <br><br><br>
+        <br><br>
+        <div style="clear: left;">
+            <p style="float: left;">
+            <div id="bump_chart" style="float:left;"></div>
+            <br>
+            </p>
+        </div>
+        <br><br>
+        <div class="verticalLineRight" style="padding-right: 20px">
+        <h2>
+            Happiness
+        </h2>
+        <p>How happy are people today? Were people happier in the past? How satisfied with their lives are people in
+            different societies? These are some difficult questions to answer. The World Happiness report is a
+            well-known source of cross-country data and research on which countries have the highest happiness index.
+            From the bump chart, we can see the happiness index ranks for the top 10 countries from 2015 to 2021.
+            Finland continues to be the country with the highest happiness index for four consecutive years. Other
+            European countries like Denmark, Iceland, Switzerland and Netherlands are among the top 5 countries with
+            high happiness index.</div>
+            .</p style="float:right;"><br>
+        <!-- Visualisation 5 -->
+        <p>
+        <div style="clear: right;">
+            <p style="float: right;">
+            <div id="area" style="float:right;position:relative; left:40px;"></div>
+            </p>
+        </div>
+        <br><br>
+        <div style="padding-left: 20px" class="verticalLine">
+        <h2>Unemployment Rate</h2>
+        Unemployment has many adverse effects, including: increased depression and other mental health problems,
+        increased crime rates, overall lower economic productivity and consumption, lower rates of volunteerism, and
+        erosion of skills. This can lead to a rising cost of living, which can be particularly hard on
+        citizens in developing and/or low-income countries. The area chart displays the unemployment rates for some of
+        the most developed countries. The 2008 recession effect can be seen on almost all countries. A clear effect of
+        the covid 19 pandemic can also be seen around 2020-2021.</p style="float:left;">
+        </p><br><br>
+        </div>
+        <!-- Visualisation 6 -->
+        <br><br><br>
+        <div style="clear: left;">
+            <p style="float: left;">
+            <div id="bar" style="float:left;" ></div>
+            <br>
+            </p>
+        </div>
+        
+        <div class="verticalLineRight" style="padding-right: 20px">
+        <h2>
+            Cost of living
+        </h2>
+        <p>Cost of living indexes are meant to compare the expenses an average person can expect to incur to acquire
+            food, shelter, transportation, energy, clothing, education, healthcare, childcare, and entertainment in
+            different regions. A cost of living index is also used to track how much the costs of basic expenses rise
+            over a period.Among the developed countries being considered, Switzerland has the highest cost of living
+            followed by Iceland, Japan and Australia for the year 2021.
+        </div></p style="float:right;"><br><br><br><br><br>
+        <br><br><br><br><br><br>
+        <div style="padding-left: 20px" class="verticalLine">
+        
+            <h2>Conclusion</h2>
+            Ultimately, immigration is an exciting thing to do that can open doors to new opportunities, to learn about different cultures, to visit new places, meet new people, and a new life to start. The visualisations above display statistical parameters of country’s social and economic growth. Hope they served their purpose in helping you choose!</p style="float:left;">
+            </p>
+        </div>
+</div>
+<!-- Style sheet div ends here -->
+</div>
+</body>
+</div>
+
+</html>

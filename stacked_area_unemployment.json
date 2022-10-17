@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400, "height": 300,
+  "title": "Unemployment Rate for different countries",
+  "data": {"url": "https://raw.githubusercontent.com/riaraghani/visualisation02/main/data/unemployment_by_country.csv"},
+  "mark": "area",
+  "params": [{
+    "name": "country",
+    "select": {"type": "point", "fields": ["Country"]},
+    "bind": "legend"
+  }], "transform": [{"filter": {"field": "Country", "oneOf": ["Switzerland","Netherlands","Australia","Germany","United States of America","United Kingdom","Canada","Singapore","Russian Federation","Japan","United Arab Emirates","Iceland"]}}],
+  "encoding": {
+    "x": {
+      "timeUnit": "year", "field": "Year","title":"Year",
+      "axis": {"domain": false, "format": "%Y", "tickSize": 4,"grid": false}
+    },
+    "y": {
+      "aggregate": "sum", "field": "Unemployment Rate",
+       "axis": null
+    },
+    "color": {
+      "field":"Country",
+      "scale": {"domain": ["Switzerland","Netherlands","Australia","Finland","Iceland","Germany","Austria","New Zealand","United States of America","United Kingdom","Canada","Singapore","Russian Federation","Japan","United Arab Emirates"], "range": ["#54d5e3", "#36998d","#97dbd3","#087685","#267aad","#175073","#73add1","#738cd1","#142a69","#330ea1","#275c58","#2d6580","#496775","#96dafa","#8b88b3"]}
+    },
+    "opacity": {
+      "condition": {"param": "country", "value": 1},
+      "value": 0.1
+    },
+    "tooltip":[{"field": "Continent", "type": "nominal", "title": "Continent"},{"field": "Year", "type": "ordinal", "title": "Year","timeUnit": "year"},
+      {"field": "Unemployment Rate", "type": "quantitative","aggregate":"sum"}]
+  }
+}

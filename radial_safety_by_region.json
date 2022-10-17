@@ -1,0 +1,27 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Safety Index (2022)",
+  "width":400,
+  "height":300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/riaraghani/visualisation02/main/data/life_expectancy_health_index_by_country_continent.csv"
+  },
+  "layer": [{
+    "mark": {"type": "arc", "innerRadius": 25, "stroke": "#fff"}
+  },{
+    "mark": {"type": "text", "radiusOffset": 10},
+    "encoding": {
+      "text": {"field": "Safety Index", "type": "quantitative","aggregate":"mean", "format":".1f"}
+    }
+  }],
+  "transform": [{"filter": {"field": "Country", "oneOf": ["Switzerland","Netherlands","Australia","Finland","Iceland","Germany","Austria","New Zealand","United States of America","United Kingdom","Canada","Singapore","Russian Federation","Japan","United Arab Emirates"]}}],
+  "encoding": {
+    "theta": {"field": "Safety Index", "type": "quantitative", "stack": true,"aggregate":"mean"},
+    "radius": {"field": "Safety Index", "scale": {"type": "sqrt", "zero": true, "rangeMin": 5},"aggregate":"mean"},
+    "color": {"field": "Country", "type": "nominal","title":"Region", "scale": {"domain": ["Switzerland","Netherlands","Australia","Finland","Iceland","Germany","Austria","New Zealand","United States of America","United Kingdom","Canada","Singapore","Russian Federation","Japan","United Arab Emirates"], "range": ["#54d5e3", "#36998d","#97dbd3","#087685","#267aad","#175073","#73add1","#738cd1","#142a69","#330ea1","#275c58","#2d6580","#496775","#96dafa","#8b88b3"]}},
+    "tooltip": [
+    {"field": "Country", "type": "nominal", "title": "Country"},
+    {"field": "Safety Index", "type": "quantitative","aggregate":"mean", "format":".1f","title":"Safety Index"}
+    ]
+  }
+}

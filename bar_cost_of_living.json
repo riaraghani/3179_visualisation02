@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2018,
+      "bind": {
+        "input": "range",
+        "min": 2012,
+        "max": 2022,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
+  "width":400,
+  "height":300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/riaraghani/visualisation02/main/data/COL_historical_by_country.csv"
+  },
+  "repeat": {"layer": ["Cost of Living Index", "Purchasing Power Index"]},
+  "spec": {
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Country",
+        "type": "nominal"
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": {"repeat": "layer"},
+        "type": "quantitative",
+        "title": "Index Value"
+      },
+      "tooltip": [
+      {"field": "Country", "type": "nominal", "title": "Country"},
+      {"field": "Purchasing Power Index", "type": "quantitative"},
+      {"field": "Cost of Living Index", "type": "quantitative"}
+    ],
+      "color": {"datum": {"repeat": "layer"}, "title": "Index Type","scale":{"domain":["Purchasing Power Index","Cost of Living Index"],"range":["#1d51a3", "#57ab88"]}},
+      "xOffset": {"datum": {"repeat": "layer"}}
+    }
+  },"transform": [{"filter": {"field": "Country", "oneOf": ["Switzerland","Netherlands","Australia","Germany","United States of America","United Kingdom","Canada","Singapore","Russian Federation","Japan","United Arab Emirates","Iceland"]}},{"filter": "datum.Year == Year_selection"}],
+  "config": {
+    "mark": {"invalid": null}
+  }
+}

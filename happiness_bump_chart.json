@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Happiness Index Ranks",
+  "width":400,
+  "height":300,
+  "params": [{
+    "name": "country",
+    "select": {"type": "point", "fields": ["Country"]},
+    "bind": "legend"
+  }],
+  "data": {
+    "url":"https://raw.githubusercontent.com/riaraghani/visualisation02/main/data/happiness_index.csv"
+  },
+  "mark": {"type": "line", "point": true},
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal","title":"Year"},
+    "y": {"field": "Rank", "type": "quantitative","title":"Happiness Index Rank","axis":{"tickCount":10}},
+    "order": {"field": "Year", "type": "ordinal"},
+    "color":{"field": "Country","scale": {"domain": ["Switzerland","Netherlands","Australia","Finland","Iceland","Denmark","Austria","New Zealand","Isreal","Luxembourg","Norway","Sweden"], 
+    "range": ["#54d5e3", "#36998d","#97dbd3","#087685","#267aad","#175073","#73add1","#738cd1","#142a69","#330ea1","#275c58","#2d6580","#496775","#96dafa","#8b88b3"]}},
+
+    "tooltip": [
+    {"field": "Country", "type": "nominal", "title": "Country"},
+    {"field": "Happiness Index", "type": "quantitative"},
+    {"field": "Rank", "type": "quantitative","title":"Happiness Index Rank"},
+    {"field": "Year", "type": "ordinal"}
+    ],
+    "opacity": {
+      "condition": {"param": "country", "value": 1},
+      "value": 0.1
+    }
+  },
+  "transform": [{"filter": "datum.Rank < 11"}]
+}
